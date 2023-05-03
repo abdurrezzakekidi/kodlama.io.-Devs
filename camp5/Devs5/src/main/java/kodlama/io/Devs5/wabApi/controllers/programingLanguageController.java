@@ -6,6 +6,7 @@ import kodlama.io.Devs5.business.requestes.CreateProgramingLanguageRequest;
 import kodlama.io.Devs5.business.responses.GetAllProgramingLanguageResponse;
 import kodlama.io.Devs5.entities.concretes.ProgramingLanguage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -27,7 +28,8 @@ public class programingLanguageController {
         return programingLanguageService.getAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping()
+    @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody() CreateProgramingLanguageRequest createProgramingLanguageRequest) {
         this.programingLanguageService.add(createProgramingLanguageRequest);
     }

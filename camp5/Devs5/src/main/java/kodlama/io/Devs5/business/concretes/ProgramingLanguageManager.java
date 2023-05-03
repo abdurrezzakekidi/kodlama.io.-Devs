@@ -5,7 +5,7 @@ import kodlama.io.Devs5.business.requestes.CreateProgramingLanguageRequest;
 import kodlama.io.Devs5.business.responses.GetAllProgramingLanguageResponse;
 import kodlama.io.Devs5.dataAccess.abstracts.ProgramingLanguageRepository;
 import kodlama.io.Devs5.entities.concretes.ProgramingLanguage;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,14 +13,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public  class ProgramingLanguageManager implements ProgramingLanguageService {
 
     private ProgramingLanguageRepository programingLanguageRepository;
-
-    @Autowired
-    public ProgramingLanguageManager(ProgramingLanguageRepository programingLanguageRepository){
-        this.programingLanguageRepository=programingLanguageRepository;
-    }
 
 
     @Override
